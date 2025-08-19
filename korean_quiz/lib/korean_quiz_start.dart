@@ -13,27 +13,28 @@ class KoreanQuizStart extends StatefulWidget {
 }
 
 class _StartQuizState extends State<KoreanQuizStart> {
-  Widget? activePage;
-
-  @override
-  void initState() {
-    super.initState();
-    activePage = MainPage(onStartQuiz: questionsPage);
-  }
+  var activePage = 'Main-Menu-screen';
 
   void questionsPage() {
     setState(() {
-      activePage = QuestionsScreen();
+      activePage = 'Questions-screen';
     });
   }
 
   @override
   Widget build(BuildContext context) {
+
+    var screen = activePage == 'Main-Menu-screen'
+              ? MainPage(questionsPage)
+              : QuestionsScreen();
+
     return MaterialApp(
       title: "Korean Quiz",
       home: Scaffold(
         appBar: QuizHeader(),
-        body: Container(child: activePage),
+        body: Container(
+          child: screen
+        ),
       ),
     );
   }

@@ -5,14 +5,18 @@ class QuizHeader extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: BoxBorder.fromLTRB(bottom: BorderSide(width: 1)),
-        image: DecorationImage(
-          image: AssetImage('assets/Korean_Flag.jpg'),
-          fit: BoxFit.contain,
+    return Stack(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            border: BoxBorder.fromLTRB(bottom: BorderSide(width: 1)),
+            image: DecorationImage(
+              image: AssetImage('assets/Korean_Flag.jpg'),
+              fit: BoxFit.cover,
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
 
